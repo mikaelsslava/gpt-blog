@@ -18,6 +18,12 @@ knex.schema.hasTable('blogposts').then((doesExist) => {
             table.increments('id').primary()
             table.string('topic', 100).unique()
             table.string('article', 10000)
+            table.string('model', 100)
+            table.string('prompt', 1000)
+            table.integer('tokens')
+            table.integer('published_wf')
+            table.integer('published_li')
+            table.integer('published_fb')
         });
     }
 }).catch((error) => {
