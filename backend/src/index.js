@@ -33,25 +33,25 @@ let LI_BEARER
         next();
     });
 
-    const params = new URLSearchParams()
-    params.append('grant_type', 'client_credentials')
-    params.append('client_id', process.env.LI_CLIENT)
-    params.append('client_secret', process.env.LI_PASS)
+    // const params = new URLSearchParams()
+    // params.append('grant_type', 'client_credentials')
+    // params.append('client_id', process.env.LI_CLIENT)
+    // params.append('client_secret', process.env.LI_PASS)
 
-    const config = {
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    }
+    // const config = {
+    //     headers: {
+    //         'Content-Type': 'application/x-www-form-urlencoded'
+    //     }
+    // }
 
-    axios.post('https://www.linkedin.com/oauth/v2/accessToken', params, config)
-    .then(({data}) => {
-        LI_BEARER = data.access_token
-        console.log(data)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+    // axios.post('https://www.linkedin.com/oauth/v2/accessToken', params, config)
+    // .then(({data}) => {
+    //     LI_BEARER = data.access_token
+    //     console.log(data)
+    // })
+    // .catch((err) => {
+    //     console.log(err)
+    // })
 
     app.get('/posts', (req, res) => {
         knex('blogposts').select('*').then((posts) => {
